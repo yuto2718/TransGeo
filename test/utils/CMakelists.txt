@@ -1,0 +1,15 @@
+find_package(GTest REQUIRED)
+
+file(GLOB TEST_SOURCES "*.cpp")
+
+add_executable(transgeo_utils_tests ${TEST_SOURCES})
+
+target_link_libraries(transgeo_utils_tests
+    transgeo_lib
+    GTest::gtest
+    GTest::gtest_main
+    pthread
+)
+
+include(GoogleTest)
+gtest_discover_tests(transgeo_utils_tests)

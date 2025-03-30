@@ -1,0 +1,11 @@
+find_package(Eigen3 REQUIRED)
+
+file(GLOB_RECURSE SOURCE_FILES *.cpp)
+add_library(trans_geo_converter_lib ${SOURCE_FILES})
+
+target_link_libraries(trans_geo_converter_lib Eigen3::Eigen)
+
+target_include_directories(trans_geo_converter_lib
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/include
+)

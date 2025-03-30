@@ -1,0 +1,17 @@
+{
+    "name": "cpp-dev",
+    "build": {
+      "dockerfile": "Dockerfile"
+    },
+    "settings": {
+      "C_Cpp.clang_format_style": "file",
+      "terminal.integrated.defaultProfile.linux": "bash"
+    },
+    "extensions": [
+      "ms-vscode.cpptools",
+      "ms-vscode.cmake-tools",
+      "llvm-vs-code-extensions.vscode-clangd"
+    ],
+    "postCreateCommand": "ccache --max-size=5G",
+    "remoteUser": "vscode"
+  }

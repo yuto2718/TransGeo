@@ -1,0 +1,31 @@
+cmake_minimum_required(VERSION 3.16)
+project(TransGeo LANGUAGES CXX)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+find_package(Eigen3 REQUIRED)
+
+if (NOT Eigen3_FOUND)
+    message(FATAL_ERROR "Eigen3 not found!")
+else()
+    message(STATUS "Eigen3 found at: ${EIGEN3_INCLUDE_DIRS}")
+endif()
+
+include_directories(${CMAKE_SOURCE_DIR}/include)
+
+file(GLOB_RECURSE SOURCE_FILES ${CMAKE_SOURCE_DIR}/src/*.cpp)
+add_library(transgeo_lib ${SOURCE_FILES})
+
+target_link_libraries(transgeo_lib Eigen3::Eigen)
+
+target_include_directories(transgeo_lib
+    PUBLIC
+    ${PROJECT_SOURCE_DIR}/include
+)
+
+enable_testing()
+add_subdirectory(test)
+add_subdirectory(src)

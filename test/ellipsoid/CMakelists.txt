@@ -1,0 +1,15 @@
+find_package(GTest REQUIRED)
+
+file(GLOB TEST_SOURCES "*.cpp")
+
+add_executable(transgeo_ellipsoid_tests ${TEST_SOURCES})
+
+target_link_libraries(transgeo_ellipsoid_tests
+    transgeo_lib
+    GTest::gtest
+    GTest::gtest_main
+    pthread
+)
+
+include(GoogleTest)
+gtest_discover_tests(transgeo_ellipsoid_tests)
