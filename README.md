@@ -37,8 +37,6 @@ GoogleTest (gtest) は C++ 用のユニットテストフレームワークで�
 ```C++
 #include "converter.hpp"
 #include "coordinate.hpp"
-#include "ellipsoid/ellipsoid.hpp"
-#include "utils/utils.hpp"
 
 // Geo 座標の例（緯度, 経度, 標高）
 trans_geo::coordinate::GeoCoordinate geo(35.6895, 139.6917, 50.0);
